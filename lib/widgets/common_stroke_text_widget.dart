@@ -1,10 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../constants/app_strings.dart';
+import '../../../constants/app_strings.dart';
 import '../helper/input_formatter.dart';
 
-class CommonTextWidget extends StatelessWidget {
+class CommonStrokeTextWidget extends StatelessWidget {
   final String text;
   final bool translate;
   final bool inherit;
@@ -35,9 +36,8 @@ class CommonTextWidget extends StatelessWidget {
   final TextOverflow? overflow;
   final TextAlign? textAlign;
   final int? maxLines;
-  final bool formatText;
 
-  const CommonTextWidget({
+  const CommonStrokeTextWidget({
     super.key,
     required this.text,
     this.inherit = true,
@@ -69,18 +69,17 @@ class CommonTextWidget extends StatelessWidget {
     this.textAlign,
     this.maxLines,
     this.translate = true,
-    this.formatText = true,
   });
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-
-      translate
-          ? (formatText ? formatNumber(text) : text).tr()
-          : (formatText ? formatNumber(text) : text),
+    return Text(translate ? formatNumber(text).tr() : formatNumber(text),
       softWrap: true,
       style: TextStyle(
+        foreground: Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 2
+          ..color = Colors.black,
         inherit: inherit,
         color: color,
         backgroundColor: backgroundColor,
@@ -93,8 +92,7 @@ class CommonTextWidget extends StatelessWidget {
         height: height?.h,
         leadingDistribution: leadingDistribution,
         locale: locale,
-        foreground: foreground,
-        background: background,
+         background: background,
         shadows: shadows,
         fontFeatures: fontFeatures,
         fontVariations: fontVariations,
@@ -106,10 +104,8 @@ class CommonTextWidget extends StatelessWidget {
         fontFamily: fontFamily ?? AppStrings.mawaniFontFamily,
         fontFamilyFallback: fontFamilyFallback,
         package: package,
-        overflow: overflow ?? TextOverflow.ellipsis,
-      ),
+        overflow: overflow ?? TextOverflow.ellipsis,),
       textAlign: textAlign ?? TextAlign.start,
-      maxLines: maxLines ?? 20,
-    );
+      maxLines: maxLines ?? 20,);
   }
 }

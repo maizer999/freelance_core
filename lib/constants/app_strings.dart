@@ -46,4 +46,51 @@ class AppStrings {
       "translation loaded from server after error occurred";
   static const String issueTypeEnumServerMaintenance =
       "Server under maintenance";
+
+  static const String statusAll = "All";
+  static const String statusSubmitted = "Submitted";
+  static const String statusDraft = "Draft";
+  static const String statusAllocated = "Allocated";
+  static const String statusApproved = "Approved";
+  static const String statusRejected = "Rejected";
+  static const String statusCancelled = "Cancelled";
+  static const String statusInactive = "Inactive";
+  static const String statusConditionalApproval = "Conditional Approval";
+  static const String statusRejectedByPortContractor =
+      "Rejected by Port contractor";
+  static const String statusPmisDrafted = "Pmis Drafted";
+  static const String statusApprovedByPortContractor =
+      "Approved By Port Contractor";
+
+  static const String yes  = "Yes";
+  static const String no   = "No";
+  static const String cancel = "Cancel";
+  static const String reject = "Reject";
+  static const String submit = "Submit";
+  static const String download = "Download";
+  static const String fontFamilyName = "Poppins";
+  static const String downloadFile = "Download File";
+  static const String approve = "Approve";
+  static const String confirm = "Confirm";
+  static const String pleaseSelect = "Please Select";
+  static const String done = "Done";
+  static const String selectDate = "Please Select Date";
+  static const String gregorianCalendar = "GREGORIAN";
+  static const String hijriCalendar = "HIJRI";
+  static const String tapToAdd = "Tap to Add";
+
+
+  static const String title = 'title';
+  static const String subTitle = 'subTitle';
+  static const String coastal = "Coastal";
+  static const String maritimeTransport = "maritime_transport";
+  static List<Map<String, dynamic>> modeOfTransportList = [
+    {'id': "1", 'codeDescriptionEnglish': AppStrings.maritimeTransport},
+    {'id': "2", 'codeDescriptionEnglish': AppStrings.coastal},
+  ];
+
+
+
+
+
 }

@@ -30,6 +30,20 @@ class AppRouter extends RootStackRouter {
       },
     ),
 
+    AutoRoute(
+      page: DobCalendarRoute.page,
+      path: "/dob",
+      children: [
+        AutoRoute(
+          page: GregorianTabRoute.page,
+          path: "geo",
+        ),
+        AutoRoute(
+          page: HijriTabRoute.page,
+          path: "hijr",
+        ),
+      ],
+    ),
 
     // AutoRoute(
     //     page: UserLoginRoute.page, initial: true, guards: [GetInitialRoute()]),

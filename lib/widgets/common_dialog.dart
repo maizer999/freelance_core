@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../constants/app_colors.dart';
 import '../constants/app_sizes.dart';
 import 'common_text_widget.dart';
