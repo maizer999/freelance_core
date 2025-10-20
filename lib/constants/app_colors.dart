@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'app_local.dart';
-import 'app_strings.dart';
 
 
 class AppColors {
@@ -52,34 +50,4 @@ class AppColors {
 
 }
 
-Color getStatusColor(String? status) {
-  switch (status) {
-    case AppStrings.all:
-      return Colors.grey;
-    case AppStrings.approved:
-    case AppStrings.allocated:
-    case AppStrings.conditionalApproval:
-    case AppStrings.conditionalApprove:
-    case AppStrings.approvedByPortContractor:
-    case AppStrings.statusReceived:
-    case AppStrings.shareWithPort:
-    case AppLocal.eclApproved:
-      return AppColors.kPrimaryGreenColor;
-    case AppStrings.submitted:
-    case AppLocal.eclSubmitted:
-      return AppColors.kFentSkyBlue;
-    case AppStrings.pmisDrafted:
-    case AppStrings.statusPending:
-      return AppColors.kOrangeColor;
-    case AppStrings.cancelled:
-    case AppStrings.rejected:
-    case AppLocal.eclRejected:
-    case AppLocal.statusWaiting:
-      return AppColors.kRed;
-    case AppStrings.inactive:
-      return AppColors.kOrangeColor;
-    default:
-      return AppColors.kRed;
-  }
-}
 

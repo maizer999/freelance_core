@@ -4,10 +4,10 @@ import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:free_lancer_app/constants/app_strings.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:open_filex/open_filex.dart';
-import '../../constants/app_local.dart';
 import '../constants/api_constants.dart';
 import '../constants/app_sizes.dart';
 import '../network/network_handler.dart';
@@ -19,10 +19,10 @@ Future<void> openFileInExplorer(String filePath) async {
   try {
     final result = await OpenFilex.open(filePath);
     if (result.type != ResultType.done) {
-      showErrorDialog(AppLocal.error, AppLocal.unableToOpen);
+      showErrorDialog(AppStrings.error, AppStrings.unableToOpen);
     }
   } catch (e) {
-    showErrorDialog(AppLocal.error, e.toString());
+    showErrorDialog(AppStrings.error, e.toString());
   }
 }
 
@@ -124,7 +124,7 @@ Future<void> downloadAndOpenFile(
 
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: CommonTextWidget(
-            text: "${AppLocal.fileSuccessfullyDownloaded.tr()} \n $filePath $fileName"),
+            text: "${AppStrings.fileSuccessfullyDownloaded.tr()} \n $filePath $fileName"),
         action: SnackBarAction(
           label: "open",
           onPressed: () async {
@@ -139,11 +139,11 @@ Future<void> downloadAndOpenFile(
       ));
     } else {
       Navigator.of(context).pop();
-      showErrorDialog(AppLocal.downloadFailed, "");
+      showErrorDialog(AppStrings.downloadFailed, "");
     }
   } catch (e, stack) {
     Navigator.of(context).pop();
-    showErrorDialog(AppLocal.error, e.toString());
+    showErrorDialog(AppStrings.error, e.toString());
   }
 }
 
@@ -155,7 +155,7 @@ void showDownloadProgressDialog(BuildContext context) {
       children: [
         CircularProgressIndicator(),
         SizedBox(height: 10),
-        Text(AppLocal.downloading.tr())
+        Text(AppStrings.downloading.tr())
       ],
     ),
     title: "",
@@ -169,7 +169,7 @@ void showErrorDialog(String title, String message) {
     context: navigatorKey.currentContext!,
     contentWidget: Text(message),
     title: title,
-    positiveDialogBtnText: AppLocal.ok,
+    positiveDialogBtnText: AppStrings.ok,
     onPositiveButtonClicked: () {
       Navigator.of(navigatorKey.currentContext!).pop();
     },

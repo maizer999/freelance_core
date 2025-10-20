@@ -1,8 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:free_lancer_app/constants/app_strings.dart';
 import 'package:free_lancer_app/helper/language/translation_loader.dart';
-import '../../constants/app_local.dart';
 import '../../routes/auto_route_observer.dart';
 import '../../routes/auto_router_provider.dart';
 import '../../routes/router.gr.dart';
@@ -37,7 +37,7 @@ class _CustomEasyLocalizationState
         () {
           ref.read(autoRouterProvider).push(
                 CommonResponseDialogRoute(
-                  responseMessage: AppLocal.languageTrans,
+                  responseMessage: AppStrings.languageTrans,
                 ),
               );
         },

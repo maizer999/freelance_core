@@ -1,10 +1,4 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
-// ignore_for_file: must_be_immutable
 
-import 'package:easy_localization/easy_localization.dart';
-import 'package:http/http.dart' as providerContainer;
-import '../../main.dart';
-import '../constants/app_local.dart';
 import '../constants/app_strings.dart';
 import '../user managment/error_model.dart';
 
@@ -80,7 +74,7 @@ class ServerErrorException implements AppException {
   String? get message {
     if (response != null) {
       final error = ErrorModel.fromResponse(response);
-      return "${AppLocal.issueTypeEnumServerMaintenance.tr()} \n ${error.responseMessage}";
+      return "${AppStrings.issueTypeEnumServerMaintenance} \n ${error.responseMessage}";
     }
     return null;
   }
@@ -117,7 +111,7 @@ class NoDataFoundException implements AppException {
   NoDataFoundException({this.response});
 
   @override
-  String? get message => AppLocal.noDataFound;
+  String? get message => AppStrings.noDataFound;
 
   Map? response;
 
@@ -133,7 +127,7 @@ class NotFoundException implements AppException {
   });
 
   @override
-  String? get message => AppLocal.notFound;
+  String? get message => AppStrings.notFound;
 
   Map? response;
 
@@ -227,7 +221,7 @@ class CommonExceptionHandler {
           : AppStrings.internalServerError;
     }
     if (error is NoDataFoundException) {
-      return AppLocal.noDataFound;
+      return AppStrings.noDataFound;
     }
 
     if (error is UserNotSupportedException) {
@@ -239,7 +233,7 @@ class CommonExceptionHandler {
     } else if (error is NotFoundException) {
       return AppStrings.notFound;
     } else {
-      return AppLocal.undefined;
+      return AppStrings.undefined;
     }
   }
 }
